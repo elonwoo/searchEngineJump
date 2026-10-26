@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         SearchSwap 双搜互跳
+// @name         searchswap 双搜互跳
 // @namespace    https://github.com/elonwoo/searchswap
 // @version      1.0.0
 // @description  在 Google 与百度搜索结果页之间带关键词互跳

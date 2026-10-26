@@ -1,4 +1,4 @@
-# SearchSwap 双搜互跳
+# searchswap 双搜互跳
 
 在 Google 和百度之间一键互跳，关键词自动带上。只在两家的搜索结果页生效。
 
