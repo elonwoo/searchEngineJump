@@ -12,7 +12,7 @@ Google  |  百度          ← 当前站点不可点，另一个点一下就跳
 
 装好 Tampermonkey 后，直接打开：
 
-https://raw.githubusercontent.com/elonwoo/SearchSwap/master/searchswap.user.js
+https://raw.githubusercontent.com/elonwoo/searchswap/master/searchswap.user.js
 
 Tampermonkey 会识别出安装页面，点「安装」即可。
 

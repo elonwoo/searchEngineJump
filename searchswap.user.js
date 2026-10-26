@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         SearchSwap 双搜互跳
-// @namespace    https://github.com/elonwoo/SearchSwap
+// @namespace    https://github.com/elonwoo/searchswap
 // @version      1.0.0
 // @description  在 Google 与百度搜索结果页之间带关键词互跳
 // @author       elonwoo
-// @homepageURL  https://github.com/elonwoo/SearchSwap
-// @supportURL   https://github.com/elonwoo/SearchSwap/issues
-// @updateURL    https://raw.githubusercontent.com/elonwoo/SearchSwap/master/searchswap.user.js
-// @downloadURL  https://raw.githubusercontent.com/elonwoo/SearchSwap/master/searchswap.user.js
+// @homepageURL  https://github.com/elonwoo/searchswap
+// @supportURL   https://github.com/elonwoo/searchswap/issues
+// @updateURL    https://raw.githubusercontent.com/elonwoo/searchswap/master/searchswap.user.js
+// @downloadURL  https://raw.githubusercontent.com/elonwoo/searchswap/master/searchswap.user.js
 // @license      MIT
 // @match        *://www.google.com/search*
 // @match        *://www.baidu.com/s*
