@@ -44,4 +44,4 @@ Tampermonkey 会识别出安装页面，点「安装」即可。
 
 ## 许可
 
-MIT。功能设计参考了 [searchEngineJump](https://github.com/qxinGitHub/searchEngineJump)，代码为完全重写。
+MIT。
