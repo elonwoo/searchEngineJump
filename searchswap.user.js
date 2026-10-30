@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         searchswap 双搜互跳
 // @namespace    https://github.com/elonwoo/searchswap
-// @version      1.0.1
+// @version      1.0.2
 // @description  在 Google 与百度搜索结果页之间带关键词互跳
 // @author       elonwoo
 // @homepageURL  https://github.com/elonwoo/searchswap
@@ -45,10 +45,10 @@
         },
     };
 
-    // 当前站的引擎排在后面，另一个排在前面
-    var ORDER = {
-        google: ['baidu', 'google'],
-        baidu: ['google', 'baidu'],
+    // 页面上只显示另一个引擎的入口
+    var OTHER = {
+        google: 'baidu',
+        baidu: 'google',
     };
 
     // ---------- 当前站点 / 关键词 ----------
@@ -111,11 +111,9 @@
         '    display: block;',
         '}',
         '#sej-lite a:hover { background: rgba(0, 0, 0, .07); }',
-        '#sej-lite .sej-cur { background: rgba(0, 0, 0, .06); font-weight: 600; cursor: default; }',
         // 深色页面：Google 的深色模式不跟随系统，只能按页面实际背景判断
         '#sej-lite.sej-dark { color: #e8eaed; }',
         '#sej-lite.sej-dark a:hover { background: rgba(255, 255, 255, .12); }',
-        '#sej-lite.sej-dark .sej-cur { background: rgba(255, 255, 255, .1); }',
     ].join('\n');
 
     // 沿祖先链找到第一个不透明的背景色，判断是不是深色页面
@@ -140,26 +138,21 @@
     }
 
     // ---------- 构建跳转栏 ----------
-    // 当前引擎渲染成不可点的 span，另一个是链接，形成互跳
+    // 只渲染另一个引擎的链接，当前站不出现
     function buildBar(engine, q) {
         var bar = document.createElement('div');
         bar.id = 'sej-lite';
-        ORDER[engine].forEach(function (key) {
-            var e = ENGINES[key];
-            var node = document.createElement(key === engine ? 'span' : 'a');
-            if (key === engine) {
-                node.className = 'sej-cur';
-            } else {
-                node.href = e.url(q);
-                node.title = '用' + e.label + '搜索「' + q + '」';
-            }
-            var img = document.createElement('img');
-            img.src = ICON[key];
-            img.alt = '';
-            node.appendChild(img);
-            node.appendChild(document.createTextNode(e.label));
-            bar.appendChild(node);
-        });
+        var key = OTHER[engine];
+        var e = ENGINES[key];
+        var node = document.createElement('a');
+        node.href = e.url(q);
+        node.title = '用' + e.label + '搜索「' + q + '」';
+        var img = document.createElement('img');
+        img.src = ICON[key];
+        img.alt = '';
+        node.appendChild(img);
+        node.appendChild(document.createTextNode(e.label));
+        bar.appendChild(node);
         return bar;
     }
 
