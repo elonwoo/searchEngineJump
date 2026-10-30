@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         searchswap 双搜互跳
 // @namespace    https://github.com/elonwoo/searchswap
-// @version      1.0.0
+// @version      1.0.1
 // @description  在 Google 与百度搜索结果页之间带关键词互跳
 // @author       elonwoo
 // @homepageURL  https://github.com/elonwoo/searchswap
@@ -45,7 +45,11 @@
         },
     };
 
-    var ORDER = ['google', 'baidu'];
+    // 当前站的引擎排在后面，另一个排在前面
+    var ORDER = {
+        google: ['baidu', 'google'],
+        baidu: ['google', 'baidu'],
+    };
 
     // ---------- 当前站点 / 关键词 ----------
     function currentEngine() {
@@ -140,7 +144,7 @@
     function buildBar(engine, q) {
         var bar = document.createElement('div');
         bar.id = 'sej-lite';
-        ORDER.forEach(function (key) {
+        ORDER[engine].forEach(function (key) {
             var e = ENGINES[key];
             var node = document.createElement(key === engine ? 'span' : 'a');
             if (key === engine) {
